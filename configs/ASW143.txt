@@ -1,0 +1,67 @@
+ASW143
+
+hostname ASW143
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Ethernet0/0
+ no shutdown
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ duplex full
+!
+interface Ethernet0/1
+ no shutdown
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ duplex full
+!
+interface Ethernet0/2
+ no shutdown
+ switchport access vlan 143
+ switchport mode access
+!
+interface Ethernet0/3
+ no shutdown
+!
+interface Vlan143
+ no shutdown
+ ip address 172.16.143.254 255.255.255.0
+!
+ip default-gateway 172.16.143.1
+ip forward-protocol nd
